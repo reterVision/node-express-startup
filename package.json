@@ -9,7 +9,8 @@
 		"stylus" : "*",
 		"vows" : "*",
 		"should" : "*",
-		"mocha" : "*"
+		"mocha" : "*",
+		"request" : "*"
 	},
 	"license" : "MIT",
 	"engines" : {
