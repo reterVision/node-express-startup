@@ -2,12 +2,12 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , sys = require('sys');
 
 var app = express();
 
@@ -33,7 +33,26 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
+server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
   console.log('Use CTRL-C to stop server')
 });
+
+// Export interface for testing
+function node_server(port) {
+	this.server = http.createServer(app).listen(port);
+	this.port = port;
+}
+
+node_server.prototype.mainpage = function(callback) {
+	http.get({host:'localhost', port:this.port, path:'/', agent:false}, function(res){
+		callback(res.statusCode);
+	});
+}	
+
+node_server.prototype.close_server = function() {
+	this.server.close();
+}
+
+exports.node_server = node_server;
+
