@@ -10,10 +10,14 @@
 		"vows" : "*",
 		"should" : "*",
 		"mocha" : "*",
-		"request" : "*"
+		"request" : "*",
+		"passport" : "*",
+		"passport-local" : "*",
+		"forever-monitor" : "*",
+		"mongoose" : "*",
 	},
 	"license" : "MIT",
 	"engines" : {
-		"node" : ">=0.8.14"
+		"node" : ">=0.8.15"
 	}
 }
