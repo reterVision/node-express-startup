@@ -14,7 +14,7 @@
 		"passport" : "*",
 		"passport-local" : "*",
 		"forever-monitor" : "*",
-		"mongoose" : "*",
+		"mongoose" : "*"
 	},
 	"license" : "MIT",
 	"engines" : {
